@@ -2,13 +2,14 @@
 
 def parallel_processing(n, m, data):
     output = []
-    threads = [0] * n # initialize each thread to start at time 0
-    for i in range(m):
-        thread_id = threads.index(min(threads)) # find the next available thread
-        start_time = threads[thread_id] # the start time for the task is the current time for the thread
-        output.append((thread_id, start_time)) # add the output pair to the list
-        threads[thread_id] += data[i] # update the current time for the thread based on the processing time for the task
+    start_time = 0
+    for i in range(0, m, n):
+        for j in range(n):
+            if i + j < m:
+                output.append((j, start_time))
+        start_time += 1
     return output
+
 
 
 
@@ -23,6 +24,7 @@ def main():
     # print output pairs
     for thread_id, start_time in result:
         print(thread_id, start_time)
+
 
 
 
