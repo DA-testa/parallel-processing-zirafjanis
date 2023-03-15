@@ -26,11 +26,13 @@ def parallel_processing(n, m, data):
     output_str = "\n".join([f"{t[0]} {t[1]}" for t in output])
     return output_str
 
+
 def main():
     n, m = map(int, input().split())
     data = list(map(int, input().split()))
     result = parallel_processing(n, m, data)
     print(result)
+
 
 if __name__ == "__main__":
     main()
