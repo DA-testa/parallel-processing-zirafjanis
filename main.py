@@ -19,7 +19,12 @@ def parallel_processing(n, m, data):
     while queue:
         time, thread = heapq.heappop(queue)
         output.append((thread, time))
-    return output
+    # Sort the output by the job index
+    output.sort(key=lambda x: x[0])
+    # Format the output as a string
+    output_str = "\n".join([f"{t[0]} {t[1]}" for t in output])
+    return output_str
+
 
 
 def main():
