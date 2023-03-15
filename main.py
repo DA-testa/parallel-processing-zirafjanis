@@ -27,12 +27,7 @@ def parallel_processing(n, m, data):
     return output_str
 
 
-def main():
-    n, m = map(int, input().split())
-    data = list(map(int, input().split()))
-    result = parallel_processing(n, m, data)
-    print(result)
-
-
-if __name__ == "__main__":
-    main()
+# Test
+input_data = "2 5\n1 2 3 4 5"
+expected_output = "0 0\n1 0\n0 1\n1 2\n0 4"
+assert parallel_processing(*map(str.strip, input_data.split('\n'))) == expected_output
